@@ -1,4 +1,4 @@
-let apiURL = 'http://api.tvmaze.com/';
+let apiURL = 'https://api.tvmaze.com/';
 let id = '';
 let data2 ;
 let epiurl = `https://api.tvmaze.com/episodes/`;
