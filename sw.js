@@ -8,9 +8,9 @@ self.addEventListener('install', function(event) {
         '/',
         '/index.html',
         '/styles.css',
-        '/script.js',
-        '/icons/icon-192x192.png',
-        '/icons/icon-512x512.png'
+        '/mainscript.js',
+        'icon/icon512_maskable.png',
+        'icon/icon512_rounded.png'
       ]);
     })
   );
