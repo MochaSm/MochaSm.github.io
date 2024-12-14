@@ -33,7 +33,7 @@
       },
       {
         "src": "ss/screenshot-mobile.png",
-        "sizes": "375x812",
+        "sizes": "374x812",
         "type": "image/png",
         "form_factor": "narrow"
       }
