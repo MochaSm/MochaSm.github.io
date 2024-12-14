@@ -21,8 +21,8 @@
     "lang":"en-GB",
     "name":"Tv-Maze",
     "short_name":"Tv-Maze",
-    "description":"Search for shows and movies"
-    
+    "description":"Search for shows and movies",
+    "start-url":"https://mochasm.github.io/"
       
 
     
