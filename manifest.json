@@ -22,7 +22,7 @@
     "name":"Tv-Maze",
     "short_name":"Tv-Maze",
     "description":"Search for shows and movies",
-    "start-url":"https://mochasm.github.io/"
+    "start_url":"https://mochasm.github.io/"
       
 
     
