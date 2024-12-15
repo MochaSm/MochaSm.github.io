@@ -30,7 +30,7 @@ window.onload = function() {
 
 // get data from TV Maze
 async function searchTvShows() {
-  if(searchTvShows == null){
+  if(searchTvShows == []){
   document.getElementById("main").innerHTML = "Can't find it sorry :(";
     
   }else{
