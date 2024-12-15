@@ -30,19 +30,24 @@ window.onload = function() {
 
 // get data from TV Maze
 async function searchTvShows() {
-  document.getElementById("main").innerHTML = "";
+  if(searchTvShows == null){
+  document.getElementById("main").innerHTML = "Can't find it sorry :(";
+    
+  }else{
+    document.getElementById("main").innerHTML = "";
   
-  let search = document.getElementById("search").value;  
-   
-  try {   
-      const response = await fetch(apiURL + 'search/shows?q=' + search);
-      const data = await response.json();
-      console.log(data);
-      showSearchResults(data);
-  } catch(error) {
-    console.error('Error fetching tv show:', error);
-  } // catch
-} // searchTvShows 
+    let search = document.getElementById("search").value;  
+     
+    try {   
+        const response = await fetch(apiURL + 'search/shows?q=' + search);
+        const data = await response.json();
+        console.log(data);
+        showSearchResults(data);
+    } catch(error) {
+      console.error('Error fetching tv show:', error);
+    } // catch
+  } // searchTvShows 
+} 
  
 
 // change the activity displayed 
