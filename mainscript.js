@@ -30,10 +30,7 @@ window.onload = function() {
 
 // get data from TV Maze
 async function searchTvShows() {
-  if(searchTvShows == []){
-  document.getElementById("main").innerHTML = "Can't find it sorry :(";
     
-  }else{
     document.getElementById("main").innerHTML = "";
   
     let search = document.getElementById("search").value;  
@@ -47,12 +44,17 @@ async function searchTvShows() {
       console.error('Error fetching tv show:', error);
     } // catch
   } // searchTvShows 
-} 
- 
 
 // change the activity displayed 
 function showSearchResults(data) {
-  
+  console.log(data)
+if(data.length === 0){
+  document.getElementById("main").innerHTML = "Can't find it sorry :(";
+  console.log(data)
+
+}else{
+  console.log(data)
+
   // show each tv show from search results in webpage
   for (let tvshow in data) {
     createTVShow(data[tvshow]);
@@ -60,6 +62,7 @@ function showSearchResults(data) {
   } // for
 
 } // updatePage
+}
 
 // in the json, genres is an array of genres associated with the tv show 
 // this function returns a string of genres formatted as a bulleted list
