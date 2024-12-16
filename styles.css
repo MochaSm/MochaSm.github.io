@@ -250,12 +250,12 @@ i{
 }
 
 .circleimg1{
-  background-image: url('brandsimg/images.png');
+  background-image: url('brandsimg/images.webp');
   z-index: 0;
 }
 
 .circleimg2{
-  background-image: url('brandsimg/Netflix.jpg');
+  background-image: url('brandsimg/Netflix.webp');
   z-index: 1;
   margin-left: -50px;
 
@@ -266,7 +266,7 @@ i{
 
 
 }.circleimg4{
-  background-image: url('brandsimg/Prime.png');
+  background-image: url('brandsimg/Prime.webp');
   z-index: 4;
   margin-left: -50px;
 
