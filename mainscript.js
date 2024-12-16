@@ -248,6 +248,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   installButton.style.display = 'block';
 
   installButton.addEventListener('click', () => {
+    console.log('what the sigma')
     installButton.style.display = 'none';
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
