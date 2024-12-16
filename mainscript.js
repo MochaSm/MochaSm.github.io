@@ -2,6 +2,19 @@ let apiURL = 'https://api.tvmaze.com/';
 let id = '';
 let data2 ;
 let epiurl = `https://api.tvmaze.com/episodes/`;
+
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }, function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  });
+}                    
+  
+
 // initialize page after HTML loads
 window.onload = function() {
    closeLightBox();  // close the lightbox because it's initially open in the CSS
@@ -13,16 +26,7 @@ window.onload = function() {
      closeLightBox();
    };
 
-   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }, function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    });
-  }                    
-    
+
   
 
 } // window.onload
