@@ -5,12 +5,15 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('my-cache').then(function(cache) {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/styles.css',
-        '/mainscript.js',
+        'index.html',
+        'styles.css',
+        'mainscript.js',
         'icon/icon512_maskable.png',
-        'icon/icon512_rounded.png'
+        'icon/icon512_rounded.png',
+        'brandsimg/images.webp',
+        'brandsimg/Netflix.webp',
+        'brandsimg/Paramount-Logo.webp',
+        'brandsimg/Prime.webp'
       ]);
     })
   );
