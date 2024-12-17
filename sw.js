@@ -20,16 +20,46 @@ self.addEventListener('install', function(event) {
     })
   );
 });
-
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      cache.addAll([
-        response,
-        console.log(response)
-      ])
-      return response || fetch(event.request);
+// Install event: Cache static assets
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('Opened cache');
+      return cache.addAll(STATIC_ASSETS);
     })
   );
 });
 
+// Activate event: Clean up old caches
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME && cache !== DYNAMIC_CACHE_NAME) {
+            console.log('Deleting old cache:', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
+  );
+});
+
+// Fetch event: Network-first strategy
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    fetch(event.request)
+      .then(networkResponse => {
+        // If network fetch is successful, cache the response
+        return caches.open(DYNAMIC_CACHE_NAME).then(cache => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      })
+      .catch(() => {
+        // If network fetch fails, fallback to cache
+        return caches.match(event.request);
+      })
+  );
+});
