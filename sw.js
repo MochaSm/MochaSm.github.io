@@ -13,7 +13,8 @@ const STATIC_ASSETS = [
   '/brandsimg/images.webp',
   '/brandsimg/Netflix.webp',
   '/brandsimg/Paramount-Logo.webp',
-  '/brandsimg/Prime.webp'
+  '/brandsimg/Prime.webp',
+  '/manifest.json'
   // Add other static files you want to cache
 ];           
 
