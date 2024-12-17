@@ -15,6 +15,7 @@ self.addEventListener('install', function(event) {
         '/brandsimg/Netflix.webp',
         '/brandsimg/Paramount-Logo.webp',
         '/brandsimg/Prime.webp'
+        
       ]);
     })
   );
@@ -23,7 +24,12 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request).then(function(response) {
+      cache,addAll([
+        response,
+        console.log(response)
+      ])
       return response || fetch(event.request);
     })
   );
 });
+
