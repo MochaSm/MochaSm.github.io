@@ -53,14 +53,12 @@ self.addEventListener('fetch', event => {
         // If network fetch is successful, cache the response
         return caches.open(DYNAMIC_CACHE_NAME).then(cache => {
           cache.put(event.request, networkResponse.clone());
-        document.getElementById('status').innerHTML = "online";
 
           return networkResponse;
         });
       })
       .catch(() => {
         // If network fetch fails, fallback to cache
-        document.getElementById('status').innerHTML = "offlines";
         return caches.match(event.request);
       })
   );
